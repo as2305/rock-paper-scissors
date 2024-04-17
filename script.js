@@ -1,19 +1,30 @@
 function getComputerChoice() {
-    let choice = ['Rock', 'Paper', 'Scissors']
+    let choice = ['rock', 'paper', 'scissors']
     randomnum = Math.floor(Math.random() * choice.length)
     return choice[randomnum]
 }
 
 function play(playerSelection, computerSelection){
+    playerSelection = playerSelection.toLowerCase()
     if (playerSelection == computerSelection) {
-        console.log("Tie")
+        return "Tie."
     } else if (
-        (playerSelection == "Rock" && computerSelection == "Scissors") ||
-        (playerSelection == "Paper" && computerSelection == "Rock") ||
-        (playerSelection == "Scissors" && computerSelection == "Paper")
+        (playerSelection == "rock" && computerSelection == "scissors") ||
+        (playerSelection == "paper" && computerSelection == "rock") ||
+        (playerSelection == "scissors" && computerSelection == "paper")
     ) {
-        console.log("You Win!")
+        return "You Win."
     } else {
-        console.log("You Lose!")
+        return "You Lose."
     }
+}   
+
+function playGame() {
+    let userInput = prompt("Rock, Paper, or Scissors?")
+    let computerChoice = getComputerChoice()
+    console.log(play(userInput, computerChoice))
+}
+
+while (true) {
+    playGame()
 }
