@@ -4,4 +4,16 @@ function getComputerChoice() {
     return choice[randomnum]
 }
 
-console.log(getComputerChoice())
+function play(playerSelection, computerSelection){
+    if (playerSelection == computerSelection) {
+        console.log("Tie")
+    } else if (
+        (playerSelection == "Rock" && computerSelection == "Scissors") ||
+        (playerSelection == "Paper" && computerSelection == "Rock") ||
+        (playerSelection == "Scissors" && computerSelection == "Paper")
+    ) {
+        console.log("You Win!")
+    } else {
+        console.log("You Lose!")
+    }
+}
