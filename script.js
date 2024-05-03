@@ -19,12 +19,24 @@ function play(playerSelection, computerSelection){
     }
 }   
 
-function playGame() {
-    let userInput = prompt("Rock, Paper, or Scissors?")
+function playGame(userchoice) {
     let computerChoice = getComputerChoice()
-    console.log(play(userInput, computerChoice))
+    console.log(play(userchoice, computerChoice))
 }
 
-while (true) {
-    playGame()
-}
+const rock = document.getElementById("rock")
+const paper = document.getElementById("paper")
+const scissors = document.getElementById("scissors")
+let userInput;
+rock.addEventListener("click", () => {
+    userInput = "rock";
+    playGame(userInput);
+    })
+paper.addEventListener("click", () => {
+    userInput = "paper";
+    playGame(userInput);
+})
+scissors.addEventListener("click", () => {
+    userInput = "scissors";
+    playGame(userInput);
+})
