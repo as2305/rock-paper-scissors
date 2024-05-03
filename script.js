@@ -21,7 +21,8 @@ function play(playerSelection, computerSelection){
 
 function playGame(userchoice) {
     let computerChoice = getComputerChoice()
-    console.log(play(userchoice, computerChoice))
+    const output = document.getElementById("output")
+    output.textContent = play(userchoice, computerChoice)
 }
 
 const rock = document.getElementById("rock")
