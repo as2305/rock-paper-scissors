@@ -1,3 +1,7 @@
+const rock = document.getElementById("rock")
+const paper = document.getElementById("paper")
+const scissors = document.getElementById("scissors")
+
 function getComputerChoice() {
     let choice = ['rock', 'paper', 'scissors']
     randomnum = Math.floor(Math.random() * choice.length)
@@ -33,16 +37,22 @@ function playGame(userchoice) {
     score.textContent = ("Player: "+ playerScore+ " | Computer: "+ computerScore)
     if (playerScore == 5) {
         winner.textContent = "The winner is player!"
+        winner.style.color = "green";
+        rock.disabled = true;
+        paper.disabled = true;
+        scissors.disabled = true;
     } else if(computerScore == 5) {
-        winner.textContent = "The winner is computer!"
+        winner.textContent = "The winner is computer!";
+        winner.style.color = "red";
+        rock.disabled = true;
+        paper.disabled = true;
+        scissors.disabled = true;
     }
     console.log(playerScore);
     console.log(computerScore);
 }
 
-const rock = document.getElementById("rock")
-const paper = document.getElementById("paper")
-const scissors = document.getElementById("scissors")
+
 let userInput;
 rock.addEventListener("click", () => {
     userInput = "rock";
