@@ -3,7 +3,8 @@ function getComputerChoice() {
     randomnum = Math.floor(Math.random() * choice.length)
     return choice[randomnum]
 }
-
+let playerScore = 0;
+let computerScore = 0;
 function play(playerSelection, computerSelection){
     playerSelection = playerSelection.toLowerCase()
     if (playerSelection == computerSelection) {
@@ -13,9 +14,13 @@ function play(playerSelection, computerSelection){
         (playerSelection == "paper" && computerSelection == "rock") ||
         (playerSelection == "scissors" && computerSelection == "paper")
     ) {
+        playerScore++;
         return "You Win."
+        
     } else {
+        computerScore++;
         return "You Lose."
+        
     }
 }   
 
@@ -23,6 +28,16 @@ function playGame(userchoice) {
     let computerChoice = getComputerChoice()
     const output = document.getElementById("output")
     output.textContent = play(userchoice, computerChoice)
+    const winner = document.getElementById("winner")
+    const score = document.getElementById("score")
+    score.textContent = ("Player: "+ playerScore+ " | Computer: "+ computerScore)
+    if (playerScore == 5) {
+        winner.textContent = "The winner is player!"
+    } else if(computerScore == 5) {
+        winner.textContent = "The winner is computer!"
+    }
+    console.log(playerScore);
+    console.log(computerScore);
 }
 
 const rock = document.getElementById("rock")
